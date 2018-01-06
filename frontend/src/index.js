@@ -23,12 +23,18 @@ import { Main, Login, Register } from 'containers'
 import { Error404 } from 'components'
 //Example import end
 
+import {ToastContainer} from 'react-toastify'
+
 const store = createStore(reducers, applyMiddleware(thunk));
 
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
             <div>
+                <ToastContainer
+                    autoClose={3000}
+                    position="bottom-center"
+                />
                 <Switch>
                     <Route path='/404' component={Error404} />
                     <Route path='/login' component={Login}/>

@@ -39,10 +39,10 @@ export function loginFailure(code){
     }
 }
 
-export function registerRequset(id, pw, email, name){
+export function registerRequest(id, pw, email, name){
     return dispatch => {
         dispatch(register())
-        return axios.post('/api/auth/register', (id, pw, email, name)).then(res => {
+        return axios.post('/api/auth/register', {id, pw, email, name}).then(res => {
             dispatch(registerSuccess())
         }).catch(err => {
             dispatch(registerFailure(err.response.data.code))

@@ -23,7 +23,7 @@ app.use(morgan('dev'))
 mongoose.Promise = global.Promise;
 mongoose.set('debug', true);
 const db = mongoose.connection;
-mongoose.connect('mongodb://localhost/aiaikasa', (err, db) => {
+mongoose.connect('mongodb://localhost/corethic', (err, db) => {
     if(err){console.error(err)}
     else{console.log('connected to mongodb server')}
 })
@@ -32,7 +32,7 @@ mongoose.connect('mongodb://localhost/aiaikasa', (err, db) => {
 const MongoStore = connectMongo(session);
 
 app.use(session({
-    secret: 'pB32o3i4le32r32AFSpp@#@$',
+    secret: 'cOre239@#dic',
     resave: false,
     saveUninitialized: true,
     cookie: {

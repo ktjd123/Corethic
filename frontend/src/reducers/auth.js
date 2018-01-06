@@ -59,10 +59,10 @@ export default function(state=initialState, action){
             }
         })
         case REGISTER_FAILURE:
-        return update({
+        return update(state, {
             register: {
                 status: {$set: 'FAILURE'},
-                error: {$set: action.err}
+                error: {$set: action.code}
             }
         })
 

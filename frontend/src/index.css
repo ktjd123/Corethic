@@ -4,11 +4,11 @@ body{
     margin-top: 80px;
 }
 
-* {
+a, i {
     color: black;
     text-decoration: none;
     outline: none;
 }
-*:visited{
+a:visited{
     color: black;
 }
