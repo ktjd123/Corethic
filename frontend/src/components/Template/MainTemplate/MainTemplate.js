@@ -3,7 +3,7 @@ import './MainTemplate.css'
 
 import {Header, Footer} from 'components'
 
-const MainTemplate = ({Entire, notice}) => {
+const MainTemplate = ({Entire, notice, newBoard}) => {
     return (
         <div className='mainTemplate'>
             <Header/>
@@ -12,6 +12,9 @@ const MainTemplate = ({Entire, notice}) => {
             </section>
             <section className='entireT'>
                 {notice}
+            </section>
+            <section className='entireT'>
+                {newBoard}
             </section>
             <Footer/>
         </div>

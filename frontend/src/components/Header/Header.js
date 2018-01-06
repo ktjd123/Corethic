@@ -8,11 +8,11 @@ class Header extends Component {
         return (
             <div className='header'>
                 <div className='left'>
-                    
+
                 </div>
                 <Link to='/' className="logo">스레딕</Link>
                 <div className='right'>
-
+                    <Link to='/login'>로그인</Link>
                 </div>
             </div>
         );

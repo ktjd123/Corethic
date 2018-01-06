@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import './Entire.css'
 
-import {Post} from 'components'
+import { Post } from 'components'
 
 class Entire extends Component {
     render() {
-        const {title, posts} = this.props
+        const { title, posts } = this.props
         const postsR = posts.map((post, i) => {
-            return(
+            return (
                 <Post
+                    to={post.to}
                     title={post.title}
                     time={post.time}
                     writer={post.writer}

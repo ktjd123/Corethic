@@ -5,6 +5,8 @@ import {List, Map} from 'immutable'
 
 class Main extends Component {
 
+
+    //todo - to is going to be the _id of the post
     state = List([
         Map({
             to: '',
@@ -59,6 +61,7 @@ class Main extends Component {
                 <MainTemplate
                  Entire={<Entire title="HOT" posts={this.mock}/>}
                  notice={<Entire title="공지사항" posts={this.mock}/>}
+                 newBoard={<Entire title="게시판 요청" posts={this.mock}/>}
                  />
             </div>
         );
