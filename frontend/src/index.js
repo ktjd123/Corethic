@@ -19,8 +19,8 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import './index.css'
 
 //Example import
-import { Main } from 'containers'
-import {Error404} from 'components'
+import { Main, Login } from 'containers'
+import { Error404 } from 'components'
 //Example import end
 
 const store = createStore(reducers, applyMiddleware(thunk));
@@ -30,9 +30,10 @@ ReactDOM.render(
         <BrowserRouter>
             <div>
                 <Switch>
-                    <Route exact path="/" component={Main} />
-                    <Route exact path='/404' component={Error404}/>
-                    <Redirect to='/404'/>
+                    <Route path='/404' component={Error404} />
+                    <Route path='/login' component={Login}/>
+                    <Route path="/" component={Main} />
+                    <Redirect to='/404' />
                 </Switch>
             </div>
         </BrowserRouter>
