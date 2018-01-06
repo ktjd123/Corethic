@@ -7,7 +7,9 @@ const RegisterTemplate = ({register}) => {
     return (
         <div className='registerTemplate'>
             <Header/>
-            registerTemplate
+            <section className='registerT'>
+                {register}
+            </section>
             <Footer/>
         </div>
     );

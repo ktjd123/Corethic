@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
 import {MainTemplate, Entire} from 'components'
 
-import {List, Map} from 'immutable'
-
 class Main extends Component {
 
 
     //todo - to is going to be the _id of the post
-    state = List([
-        Map({
+    state = {
+        boardData: [{
             to: '',
-            board: '',
             title: '',
             time: '',
             writer: '',
-            views: 0
-        })
-    ])
+            views: ''
+        }]
+    }
 
     mock = [
         {

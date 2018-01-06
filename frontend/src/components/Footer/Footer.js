@@ -12,7 +12,7 @@ class Footer extends Component {
                     <Link to='/'>개인정보취급방침</Link>
                 </div>
                 <div className='copyright'>
-                    모든 권리는 스레딕에게 있습니다.
+                    모든 권리는 코레딕에게 있습니다.
                 </div>
             </div>
         );
