@@ -1,0 +1,22 @@
+.header{
+    width: 100%;
+    background: #0B6DB7;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header *:visited{
+    color: white;
+}
+
+.header .logo{
+    font-size: 2rem;
+    letter-spacing: 0.3rem;
+}

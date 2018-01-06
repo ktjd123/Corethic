@@ -1,11 +1,13 @@
 import React from 'react';
-import './MainTemplate'
+import './MainTemplate.css'
 
-const MainTemplate = ({App}) => {
+import {Header} from 'components'
+
+const MainTemplate = () => {
     return (
         <div className='mainTemplate'>
+            <Header/>
             <section className='app'>
-                {App}
             </section>
         </div>
     );

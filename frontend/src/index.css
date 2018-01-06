@@ -1,3 +1,12 @@
 body{
     background: #f1f3f5;
+    font-family: sans-serif;
+}
+
+* {
+    color: black;
+    text-decoration: none;
+}
+*:visited{
+    color: black;
 }
