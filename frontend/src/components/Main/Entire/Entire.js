@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Entire.css'
 
 import { Post } from 'components'
+import {Link} from 'react-router-dom'
 
 class Entire extends Component {
     render() {
@@ -20,7 +21,10 @@ class Entire extends Component {
         })
         return (
             <div className='entire'>
-                <div className='title'>{title}</div>
+                <div className='info'>
+                    <div className='title'>{title}</div>
+                    <Link to='/write' className='write'>글쓰기</Link>
+                </div>
                 <div className='main'>
                     {postsR}
                 </div>
