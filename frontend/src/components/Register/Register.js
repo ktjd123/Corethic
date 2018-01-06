@@ -13,7 +13,7 @@ class Register extends Component {
                 </div>
                 <div className='holder'>
                     <i className='material-icons'>vpn_key</i>
-                    <input type='password' placeholder='패스워드'  className='pw' value={pw} onChange={onChange} />
+                    <input type='password' placeholder='비밀번호'  className='pw' value={pw} onChange={onChange} />
                 </div>
                 <div className='holder'>
                     <i className='material-icons'>email</i>

@@ -27,7 +27,7 @@ class Register extends Component {
                 this.props.history.push('/login')
             }else{
                 const errorMessage = [
-                    '입력값을 확인해주세요',
+                    '다시 시도해주세요',
                     '이미 있는 아이디입니다',
                     '이미 있는 이메일입니다',
                     '이미 있는 닉네임입니다'

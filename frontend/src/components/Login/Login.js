@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 
 class Login extends Component {
     render() {
-        const {id, pw, onChange} = this.props
+        const {id, pw, onChange, onLogin} = this.props
         return (
             <div className='login'>
                 <div className='holder'>
@@ -14,10 +14,10 @@ class Login extends Component {
                 </div>
                 <div className='holder'>
                 <i className='material-icons'>vpn_key</i>
-                    <input type='password' placeholder='패스워드' className='pw' value={pw} onChange={onChange}/>
+                    <input type='password' placeholder='비밀번호' className='pw' value={pw} onChange={onChange}/>
                 </div>
                 <div className='loginCon'>
-                    <a className='loginB'>로그인</a>
+                    <a className='loginB' onClick={onLogin}>로그인</a>
                     <Link to='/register' className='registerB'>회원가입</Link>
                 </div>
             </div>

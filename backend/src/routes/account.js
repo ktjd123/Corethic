@@ -22,7 +22,7 @@ router.post('/login', (req, res) => {
                 code: 1
             })
         }
-        if (!Account.compareHash(pw)) {
+        if (!user.compareHash(pw)) {
             return res.status(403).json({
                 code: 2
             })
