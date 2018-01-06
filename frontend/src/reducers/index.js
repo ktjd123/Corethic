@@ -1,9 +1,9 @@
-import test from 'reducers/test';
+import auth from './auth'
 
 import {combineReducers} from 'redux';
 
 const reducers = combineReducers({
-    test: test
+    auth
 })
 
 export default reducers

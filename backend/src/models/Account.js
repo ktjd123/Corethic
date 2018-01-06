@@ -1,8 +1,9 @@
 import mongoose from 'mongoose'
+import bcrypt from 'bcryptjs'
 
-const Schema = mongoose.Schema()
+const Schema = mongoose.Schema
 
-const Account = Schema({
+const Account = new Schema({
     id: String,
     pw: String,
     email: String,
@@ -10,5 +11,13 @@ const Account = Schema({
     lv: {type: Number, default: 0},
     registerd: {type: Date, default: new Date()}
 })
+
+Account.methods.generateHash = function(pw) {
+    return bcrypt.hashSync(pw, 8)
+}
+
+Account.methods.compareHash = function(pw){
+    return bcrypt.compareSync(pw, this.pw)
+}
 
 export default mongoose.model('Account', Account);

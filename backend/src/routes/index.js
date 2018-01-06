@@ -1,10 +1,9 @@
 import express from 'express';
-import post from './post';
+import account from './account'
 
 const router = express.Router()
 
-
-router.use('/post', post);
+router.use('/auth', account)
 
 router.get('/heart_beat', (req,res) => {
     return res.send('It works!')
