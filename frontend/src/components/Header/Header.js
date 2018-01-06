@@ -10,7 +10,7 @@ class Header extends Component {
                 <div className='left'>
 
                 </div>
-                <Link to='/' className="logo">스레딕</Link>
+                <Link to='/' className="logo">코레딕</Link>
                 <div className='right'>
                     <Link to='/login'>로그인</Link>
                 </div>

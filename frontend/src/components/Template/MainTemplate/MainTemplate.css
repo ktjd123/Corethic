@@ -1,14 +1,11 @@
 .mainTemplate{
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .mainTemplate .entireT{
-    width: 80%;
-}
-
-.mainTemplate .entireT + .entireT{
-    margin-top: 30px;
+    width: 500px;
+    margin: 10px;
 }
 
 @media (max-width: 800px){

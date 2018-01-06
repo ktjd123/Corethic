@@ -3,7 +3,7 @@ import './MainTemplate.css'
 
 import {Header, Footer} from 'components'
 
-const MainTemplate = ({Entire, notice, newBoard}) => {
+const MainTemplate = ({Entire, btc, xrp, eth, bth, ltc, dash, newBoard}) => {
     return (
         <div className='mainTemplate'>
             <Header/>
@@ -11,7 +11,22 @@ const MainTemplate = ({Entire, notice, newBoard}) => {
                 {Entire}
             </section>
             <section className='entireT'>
-                {notice}
+                {btc}
+            </section>
+            <section className='entireT'>
+                {xrp}
+            </section>
+            <section className='entireT'>
+                {eth}
+            </section>
+            <section className='entireT'>
+                {bth}
+            </section>
+            <section className='entireT'>
+                {ltc}
+            </section>
+            <section className='entireT'>
+                {dash}
             </section>
             <section className='entireT'>
                 {newBoard}
