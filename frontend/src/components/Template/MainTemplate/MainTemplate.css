@@ -1,0 +1,18 @@
+.mainTemplate{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.mainTemplate .entireT{
+    width: 80%;
+}
+
+.mainTemplate .entireT + .entireT{
+    margin-top: 30px;
+}
+
+@media (max-width: 800px){
+    .mainTemplate .entireT{
+        width: 100%;
+    }
+}

@@ -1,0 +1,55 @@
+.post{
+    padding: 10px 20px 10px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.post + .post{
+    border-top: 1px solid #eee;
+}
+
+.post .info{
+    display: flex;
+    align-items: center;
+}
+
+.post .info .title{
+    font-size: 1.5rem;
+    width: 100%;
+}
+
+.post .info .time{
+    font-size: 1rem;
+    width: 50px;
+}
+
+.post .info2{
+    font-size: 0.8rem;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;   
+}
+
+.post .info2 .writer{
+    width: 100px;
+    color: gray;
+}
+
+.post .info2 .views{
+    color: gray;
+}
+
+@media (max-width: 800px){
+    .post{
+        padding: 5px 20px 5px 20px;
+    }
+    .post .info .title{
+        font-size: 1.2rem;
+    }
+    .post .info .time{
+        font-size: 0.8rem;
+    }
+    .post .info2{
+        margin-top: 5px;
+    }
+}

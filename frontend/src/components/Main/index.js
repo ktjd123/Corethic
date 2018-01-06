@@ -1,0 +1,1 @@
+export {Entire} from './Entire'

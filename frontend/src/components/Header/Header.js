@@ -7,7 +7,13 @@ class Header extends Component {
     render() {
         return (
             <div className='header'>
-                <Link to='/' className="logo">쓰레딕</Link>
+                <div className='left'>
+                    
+                </div>
+                <Link to='/' className="logo">스레딕</Link>
+                <div className='right'>
+
+                </div>
             </div>
         );
     }
