@@ -1,0 +1,15 @@
+.loginTemplate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginTemplate .loginT{
+    width: 50%;
+}
+
+@media (max-width: 800px){
+    .loginTemplate .loginT{
+        width: 100%;
+    }
+}

@@ -11,13 +11,11 @@ class Header extends Component {
         )
         const loginRegex = /(login|register)/
         if(loginRegex.test(window.location.href)){
-            console.log('done')
             login = undefined
         }
         return (
             <div className='header'>
                 <div className='left'>
-
                 </div>
                 <Link to='/' className="logo">코레딕</Link>
                 <div className='right'>

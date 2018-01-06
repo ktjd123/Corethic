@@ -19,7 +19,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import './index.css'
 
 //Example import
-import { Main, Login } from 'containers'
+import { Main, Login, Register } from 'containers'
 import { Error404 } from 'components'
 //Example import end
 
@@ -32,7 +32,8 @@ ReactDOM.render(
                 <Switch>
                     <Route path='/404' component={Error404} />
                     <Route path='/login' component={Login}/>
-                    <Route path="/" component={Main} />
+                    <Route path='/register' component={Register}/>
+                    <Route exact path="/" component={Main} />
                     <Redirect to='/404' />
                 </Switch>
             </div>

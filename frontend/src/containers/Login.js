@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import {LoginTemplate} from 'components'
+import {LoginTemplate, LoginC} from 'components'
 
 class Login extends Component {
     render() {
         return (
             <div>
-                <LoginTemplate/>
+                <LoginTemplate login={<LoginC/>}/>
             </div>
         );
     }

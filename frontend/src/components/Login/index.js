@@ -1,0 +1,1 @@
+export {default as LoginC} from './Login'

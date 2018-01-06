@@ -3,10 +3,13 @@ import './LoginTemplate.css'
 
 import {Header, Footer} from 'components'
 
-const LoginTemplate = () => {
+const LoginTemplate = ({login}) => {
     return (
-        <div>
+        <div className='loginTemplate'>
             <Header/>
+            <section className='loginT'>
+                {login}
+            </section>
             <Footer/>
         </div>
     );

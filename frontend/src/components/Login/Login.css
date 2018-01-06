@@ -1,0 +1,74 @@
+.login{
+    background: #026892;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 3px;
+}
+
+.login i{
+    margin-left: 3%;
+    width: 10%;
+}
+
+.login .holder{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: white;
+}
+
+.login > .holder input{
+    width: 100%;
+    height: 30px;
+    border-radius: 1px;
+    border: 1px solid #eee;
+    font-size: 1.3rem;
+    padding: 5px 10px 5px 10px;
+}
+.login > .holder + .holder {
+    margin-top: 20px;
+}
+
+.login .loginCon {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.login .loginCon a{
+    color: white;
+    width: 40%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.login .loginCon a:hover{
+    filter: brightness(105%);
+}
+.login .loginCon a:active{
+    filter: brightness(95%);
+}
+
+.login .loginCon .loginB{
+    background: #00B5E3;
+}
+
+.login .loginCon .registerB{
+    background: #5AC6D0;
+}
+
+@media (min-width: 1500px){
+    .login i{
+        margin-left: 1.5%;
+        width: 5%;
+    }
+}
