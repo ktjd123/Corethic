@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {LoginTemplate, LoginC} from 'components'
-import {loginRequest} from 'actions/auth'
+import {loginRequest, getInfoRequest} from 'actions/auth'
 import {connect} from 'react-redux'
 import { toast } from 'react-toastify';
 class Login extends Component {
@@ -9,6 +9,15 @@ class Login extends Component {
         id: '',
         pw: ''
     }
+
+    componentWillMount() {
+        this.props.getInfoRequest().then(() => {
+            if(this.props.main.valid){
+                this.props.history.push('/')
+            }
+        })
+    }
+    
 
     handleChange = e => {
         const nextState = this.state
@@ -51,7 +60,8 @@ class Login extends Component {
 
 const mapStateToProps = state => {
     return {
-        login: state.auth.login 
+        login: state.auth.login ,
+        main: state.auth.main
     }
 }
 
@@ -59,6 +69,9 @@ const mapDispatchToProps = dispatch => {
     return {
         loginRequest: (id, pw) => {
             return dispatch(loginRequest(id,pw))
+        },
+        getInfoRequest: () => {
+            return dispatch(getInfoRequest())
         }
     }
 }

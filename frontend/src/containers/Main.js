@@ -59,6 +59,10 @@ class Main extends Component {
                     name: this.props.main.name,
                     valid: this.props.main.valid
                 })
+            }else{
+                this.setState({
+                    valid: this.props.main.valid
+                })
             }
         })
     }

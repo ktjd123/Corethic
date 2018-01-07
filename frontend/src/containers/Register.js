@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {RegisterTemplate, RegisterC} from  'components'
-import {registerRequest} from 'actions/auth'
+import {registerRequest, getInfoRequest} from 'actions/auth'
 import {connect} from 'react-redux'
 import {toast} from 'react-toastify'
 
@@ -10,6 +10,14 @@ class Register extends Component {
         pw: '',
         name: '',
         email: ''
+    }
+
+    componentWillMount() {
+        this.props.getInfoRequest().then(() => {
+            if(this.props.main.valid){
+                this.props.history.push('/')
+            }
+        })
     }
     
 
@@ -56,7 +64,8 @@ class Register extends Component {
 
 const mapStateToProps = state => {
     return {
-        register: state.auth.register
+        register: state.auth.register,
+        main: state.auth.main
     }
 }
 
@@ -64,6 +73,9 @@ const mapDispatchToProps = dispatch => {
     return {
         registerRequest: (id, pw, email, name) => {
             return dispatch(registerRequest(id, pw, email, name))
+        },
+        getInfoRequest: () => {
+            return dispatch(getInfoRequest())
         }
     }
 }
