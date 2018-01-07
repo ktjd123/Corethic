@@ -18,6 +18,10 @@
     color: white;
 }
 
+.header a{
+    cursor: pointer;
+}
+
 .header *:visited{
     color: white;
 }

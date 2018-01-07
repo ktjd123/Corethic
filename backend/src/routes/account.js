@@ -97,4 +97,15 @@ router.post('/register', (req, res) => {
     })
 })
 
+router.get('/info', (req,res) => {
+    if(typeof req.session.loginInfo==="undefined"){
+        return res.status(403).json({
+            code: 1
+        })
+    }
+    return res.json({
+        info: req.session.loginInfo
+    })
+})
+
 export default router

@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 import {MainTemplate, Entire} from 'components'
+import {getInfoRequest} from 'actions/auth'
+import {connect} from 'react-redux'
 
 class Main extends Component {
 
 
     //todo - to is going to be the _id of the post
     state = {
-        boardData: [{
-            to: '',
-            title: '',
-            time: '',
-            writer: '',
-            views: ''
-        }]
+        id: '',
+        name: '',
+        valid: true
     }
 
     mock = [
@@ -53,10 +51,25 @@ class Main extends Component {
         },
     ]
 
+    componentDidMount() {
+        this.props.getInfoRequest().then(() => {
+            if(this.props.main.status === "SUCCESS"){
+                this.setState({
+                    id: this.props.main.id,
+                    name: this.props.main.name,
+                    valid: this.props.main.valid
+                })
+            }
+        })
+    }
+    
+
+
     render() {
         return (
             <div>
                 <MainTemplate
+                valid={this.state.valid}
                  Entire={<Entire title="전체 - HOT" posts={this.mock}/>}
                  btc={<Entire title="비트코인" posts={this.mock}/>}
                  xrp={<Entire title="리플" posts={this.mock}/>}
@@ -71,4 +84,18 @@ class Main extends Component {
     }
 }
 
-export default Main;
+const mapStateToProps = state => {
+    return {
+        main: state.auth.main
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        getInfoRequest: () => {
+            return dispatch(getInfoRequest())
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

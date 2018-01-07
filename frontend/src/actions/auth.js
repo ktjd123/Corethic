@@ -4,7 +4,10 @@ import {
     LOGIN_FAILURE,
     REGISTER,
     REGISTER_SUCCESS,
-    REGISTER_FAILURE
+    REGISTER_FAILURE,
+    GET_INFO,
+    GET_INFO_SUCCESS,
+    GET_INFO_FAILURE
 } from './ActionTypes'
 import axios from 'axios'
 
@@ -65,6 +68,37 @@ export function registerSuccess(){
 export function registerFailure(code){
     return {
         type: REGISTER_FAILURE,
+        code
+    }
+}
+
+export function getInfoRequest(){
+    return dispatch => {
+        dispatch(getInfo())
+        return axios.get('/api/auth/info').then(res => {
+            dispatch(getInfoSuccess(res.data.info))
+        }).catch(err => {
+            dispatch(getInfoFailure(err.response.data.code))
+        })
+    }
+}
+
+export function getInfo(){
+    return {
+        type: GET_INFO
+    }
+}
+
+export function getInfoSuccess(info){
+    return {
+        type: GET_INFO_SUCCESS,
+        info
+    }
+}
+
+export function getInfoFailure(code){
+    return {
+        type: GET_INFO_FAILURE,
         code
     }
 }
