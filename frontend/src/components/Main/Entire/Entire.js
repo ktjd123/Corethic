@@ -15,6 +15,7 @@ class Entire extends Component {
                     time={post.time}
                     writer={post.writer}
                     views={post.views}
+                    good={post.good}
                     key={i}
                 />
             )

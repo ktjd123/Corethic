@@ -5,49 +5,53 @@ import {connect} from 'react-redux'
 
 class Main extends Component {
 
-
-    //todo - to is going to be the _id of the post
     state = {
         id: '',
         name: '',
         valid: true
     }
 
+    //todo to -> id
     mock = [
         {
             to: '/',
             title: '걔가 누군데?',
             time: '1분전',
             writer: '김성민',
-            views: 20
+            views: 20,
+            good: true
         },
         {
             to: '/',
             title: '걔가 누군데?',
             time: '1분전',
             writer: '김성민',
-            views: 20
+            views: 20,
+            good: true
         },
         {
             to: '/',
             title: '걔가 누군데?',
             time: '1분전',
             writer: '김성민',
-            views: 20
+            views: 20,
+            good: false
         },
         {
             to: '/',
             title: '걔가 누군데?',
             time: '1분전',
             writer: '김성민',
-            views: 20
+            views: 20,
+            good: true
         },
         {
             to: '/',
             title: '걔가 누군데?',
             time: '1분전',
             writer: '김성민',
-            views: 20
+            views: 20,
+            good: false
         },
     ]
 
@@ -70,10 +74,11 @@ class Main extends Component {
 
 
     render() {
+        const {valid} = this.state
         return (
             <div>
                 <MainTemplate
-                valid={this.state.valid}
+                valid={valid}
                  Entire={<Entire title="전체 - HOT" posts={this.mock}/>}
                  btc={<Entire title="비트코인" posts={this.mock}/>}
                  xrp={<Entire title="리플" posts={this.mock}/>}
