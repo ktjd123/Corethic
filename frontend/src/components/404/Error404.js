@@ -8,7 +8,7 @@ class Error404 extends Component {
             <div className='error404'>
                 <Header />
                 <h1>없는 페이지입니다.</h1>
-                <p>상단의 스레딕을 눌러 돌아가세요</p>
+                <p>상단의 코레딕을 눌러 돌아가세요</p>
                 <Footer/>
             </div>
         );

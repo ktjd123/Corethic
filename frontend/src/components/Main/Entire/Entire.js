@@ -7,15 +7,17 @@ import {Link} from 'react-router-dom'
 class Entire extends Component {
     render() {
         const { title, posts, to } = this.props
-        const postsR = posts.map((post, i) => {
+        // todo change key to _id
+        // apply time ago
+        const postsR = posts.map((post,i) => {
             return (
                 <Post
-                    to={post.to}
+                    to={post._id}
                     title={post.title}
-                    time={post.time}
+                    time={'1분전'}
                     writer={post.writer}
                     views={post.views}
-                    good={post.good}
+                    good={post.type}
                     key={i}
                 />
             )

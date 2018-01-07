@@ -27,6 +27,14 @@ class Login extends Component {
 
     handleLogin = () => {
         const {id, pw} = this.state
+        if(id < 3 || id > 10){
+            toast.error('아이디는 3에서 10자리 입니다')
+            return
+        }
+        if(pw < 6 || pw > 20){
+            toast.error('비밀번호는 6에서 20자리 입니다.')
+            return
+        }
         this.props.loginRequest(id,pw).then(() => {
             if(this.props.login.status==="SUCCESS"){
                 toast.success('로그인했습니다')

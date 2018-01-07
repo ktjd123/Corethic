@@ -29,6 +29,23 @@ class Register extends Component {
 
     handleRegister = () => {
         const {id, pw, email, name} = this.state
+        if(id < 3 || id > 10){
+            toast.error('아이디는 3에서 10자리 입니다')
+            return
+        }
+        if(pw < 6 || pw > 20){
+            toast.error('비밀번호는 6에서 20자리 입니다')
+            return
+        }
+        const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        if(!emailRegex.test(email)){
+            toast.error('이메일을 확인해주세요')
+            return
+        }
+        if( name < 1 || name > 10){
+            toast.error('닉네임은 1에서 10자리 입니다')
+            return
+        }
         this.props.registerRequest(id,pw,email,name).then(() => {
             if(this.props.register.status === "SUCCESS"){
                 toast.success('가입을 축하드립니다!')

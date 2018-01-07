@@ -14,3 +14,7 @@ export const GET_INFO_FAILURE = "GET_INFO_FAILURE"
 export const POST = "POST"
 export const POST_SUCCESS = "POST_SUCCESS"
 export const POST_FAILURE = "POST_FAILURE"
+
+export const GET_POST = "GET_POST"
+export const GET_POST_SUCCESS = "GET_POST_SUCCESS"
+export const GET_POST_FAILURE = "GET_POST_FAILURE"

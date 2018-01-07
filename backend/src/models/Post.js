@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const Post = new Schema({
-    writer: Schema.Types.ObjectId,
+    writer: String,
     board: String,
     title: String,
     content: String,
