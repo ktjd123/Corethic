@@ -8,11 +8,11 @@ import {Link} from 'react-router-dom'
 
 class Post extends Component {
     render() {
-        const {to, title, time, writer, views, good} = this.props
+        const {to, title,board, time, writer, views, good} = this.props
         const loading = '로딩중...'
         const formatter = buildFormatter(koreanString)
         return (
-            <Link to={'/detail'+to || '/404'} className={`post ${good ? 'good' : 'bad'}`}>
+            <Link to={'/detail/'+board+'/'+to || '/404'} className={`post ${good ? 'good' : 'bad'}`}>
                 <div className='info'>
                     <div className='title'>
                         {title || loading}

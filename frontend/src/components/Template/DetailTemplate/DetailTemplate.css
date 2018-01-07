@@ -1,0 +1,10 @@
+.detailTemplate{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.detailTemplate > .infoT{
+    margin-bottom: 10px;
+    border-bottom: 1px solid lightgray;
+}

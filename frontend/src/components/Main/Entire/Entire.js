@@ -18,6 +18,7 @@ class Entire extends Component {
                     writer={post.writer}
                     views={post.views}
                     good={post.type}
+                    board = {post.board}
                     key={i}
                 />
             )
