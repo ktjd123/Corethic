@@ -3,8 +3,9 @@ import './Input.css'
 
 class Type extends Component {
     render() {
+        const {onToggle, type} = this.props
         return (
-            <select>
+            <select value={type} onChange={onToggle}>
                 <option value='호재'>호재</option>
                 <option value='악재'>악재</option>
             </select>
@@ -14,13 +15,14 @@ class Type extends Component {
 
 class Input extends Component {
     render() {
+        const {onChange, title, count, onToggle, type} = this.props
         return (
             <div className='input'>
                 <div className='inputBox'>
-                    <input className='title' placeholder='제목을 입력해주세요' autoComplete='off' />
-                    <div className='count'>0/15</div>
+                    <input className='title' name='title' placeholder='제목을 입력해주세요' autoComplete='off' onChange={onChange} value={title} />
+                    <div className='count'>{count}/15</div>
                 </div>
-                <Type/>
+                <Type onToggle={onToggle} type={type} />
             </div>
         );
     }

@@ -7,8 +7,8 @@ const router = express.Router()
 router.post('/login', (req, res) => {
     const { id, pw } = req.body
     const schema = Joi.object().keys({
-        id: Joi.string().min(3).max(10).required(),
-        pw: Joi.string().min(6).max(20).required()
+        id: Joi.string().trim().min(3).max(10).required(),
+        pw: Joi.string().trim().min(6).max(20).required()
     })
     const result = Joi.validate({ id: id, pw: pw }, schema)
     if (result.error) {
@@ -43,10 +43,10 @@ router.post('/login', (req, res) => {
 router.post('/register', (req, res) => {
     const {id, pw, email, name } = req.body
     const schema = Joi.object().keys({
-        id: Joi.string().min(3).max(10).required(),
-        pw: Joi.string().min(6).max(20).required(),
-        email: Joi.string().email().required(),
-        name: Joi.string().min(1).max(10).required()
+        id: Joi.string().trim().min(3).max(10).required(),
+        pw: Joi.string().trim().min(6).max(20).required(),
+        email: Joi.string().trim().email().required(),
+        name: Joi.string().trim().min(1).max(10).required()
     })
     const result = Joi.validate({ id: id, pw: pw, email: email, name: name }, schema)
     if (result.error) {

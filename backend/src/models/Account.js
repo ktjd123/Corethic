@@ -12,6 +12,8 @@ const Account = new Schema({
     registerd: {type: Date, default: new Date()}
 })
 
+Account.index({id: 1, name: 1})
+
 Account.methods.generateHash = function(pw) {
     return bcrypt.hashSync(pw, 8)
 }

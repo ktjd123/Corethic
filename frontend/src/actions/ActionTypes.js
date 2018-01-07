@@ -10,3 +10,7 @@ export const REGISTER_FAILURE = "REGISTER_FAILURE"
 export const GET_INFO = "GET_INFO"
 export const GET_INFO_SUCCESS = "GET_INFO_SUCCESS"
 export const GET_INFO_FAILURE = "GET_INFO_FAILURE"
+
+export const POST = "POST"
+export const POST_SUCCESS = "POST_SUCCESS"
+export const POST_FAILURE = "POST_FAILURE"
