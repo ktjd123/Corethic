@@ -17,7 +17,7 @@ class Input extends Component {
         return (
             <div className='input'>
                 <div className='inputBox'>
-                    <input className='title' placeholder='제목을 입력해주세요' />
+                    <input className='title' placeholder='제목을 입력해주세요' autoComplete='off' />
                     <div className='count'>0/15</div>
                 </div>
                 <Type/>
