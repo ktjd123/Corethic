@@ -4,7 +4,10 @@ import {
     POST_FAILURE,
     GET_POST,
     GET_POST_SUCCESS,
-    GET_POST_FAILURE
+    GET_POST_FAILURE,
+    GET_DETAIL,
+    GET_DETAIL_SUCCESS,
+    GET_DETAIL_FAILURE
 } from '../actions/ActionTypes'
 import update from 'react-addons-update'
 
@@ -16,6 +19,11 @@ const initialState = {
     getPost: {
         status: 'INIT',
         posts: [],
+        error: -1
+    },
+    detail: {
+        status: 'INIT',
+        post: undefined,
         error: -1
     }
 }
@@ -62,6 +70,29 @@ export default function(state = initialState, action){
         case GET_POST_FAILURE:
         return update(state, {
             getPost: {
+                status: {$set: 'FAILURE'},
+                error: {$set: action.code}
+            }
+        })
+
+        case GET_DETAIL:
+        return update(state, {
+            detail: {
+                status: {$set: 'PENDING'}
+            }
+        })
+
+        case GET_DETAIL_SUCCESS:
+        return update(state, {
+            detail: {
+                status: {$set: 'SUCCESS'},
+                post: {$set: action.post}
+            }
+        })
+
+        case GET_DETAIL_FAILURE:
+        return update(state, {
+            detail: {
                 status: {$set: 'FAILURE'},
                 error: {$set: action.code}
             }

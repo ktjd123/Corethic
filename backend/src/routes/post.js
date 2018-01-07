@@ -65,5 +65,28 @@ router.post('/get', (req, res) => {
     }
 })
 
+router.post('/detail', (req,res) => {
+    const body = req.body
+    const schema = Joi.object().keys({
+        id: Joi.string().required()
+    })
+    const result = Joi.validate({id: body.id}, schema)
+    if(result.error){
+        return res.status(400).json({
+            code: 0
+        })
+    }
+    Post.findById(body.id).exec().then(post => {
+        if(!post){
+            return res.status(404).json({
+                code: 1
+            })
+        }
+        return res.json(post)
+    }).catch(err => {
+        throw err
+    })
+})
+
 
 export default router

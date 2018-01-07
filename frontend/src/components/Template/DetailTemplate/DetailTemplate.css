@@ -8,3 +8,13 @@
     margin-bottom: 10px;
     border-bottom: 1px solid lightgray;
 }
+
+.detailTemplate > .detailT{
+    width: 80%;
+}
+
+@media (max-width: 800px){
+    .detailTemplate > .detailT{
+        width: 100%;
+    }
+}

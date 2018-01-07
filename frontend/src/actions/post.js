@@ -4,7 +4,10 @@ import {
     POST_FAILURE,
     GET_POST,
     GET_POST_SUCCESS,
-    GET_POST_FAILURE
+    GET_POST_FAILURE,
+    GET_DETAIL,
+    GET_DETAIL_SUCCESS,
+    GET_DETAIL_FAILURE
 } from './ActionTypes'
 import axios from 'axios'
 
@@ -65,6 +68,37 @@ export function getPostSuccess(posts){
 export function getPostFailure(code){
     return {
         type: GET_POST_FAILURE,
+        code
+    }
+}
+
+export function getDetailRequest(id){
+    return dispatch => {
+        dispatch(getDetail())
+        return axios.post('/api/post/detail', {id}).then(res => {
+            dispatch(getDetailSuccess(res.data))
+        }).catch(err => {
+            dispatch(getDetailFailure(err.response.data.code))
+        })
+    }
+}
+
+export function getDetail(){
+    return {
+        type: GET_DETAIL
+    }
+}
+
+export function getDetailSuccess(post){
+    return {
+        type: GET_DETAIL_SUCCESS,
+        post
+    }
+}
+
+export function getDetailFailure(code){
+    return {
+        type: GET_DETAIL_FAILURE,
         code
     }
 }
