@@ -13,7 +13,7 @@
 }
 .writeTemplate .submitT{
     margin-top: 1rem;
-    width: 30%;
+    width: 23%;
 }
 
 @media(max-width: 800px){
@@ -24,6 +24,6 @@
         width: 100%;
     }
     .writeTemplate .submitT{
-        width: 80%;
+        width: 73%;
     }
 }

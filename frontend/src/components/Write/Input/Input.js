@@ -20,7 +20,7 @@ class Input extends Component {
             <div className='input'>
                 <div className='inputBox'>
                     <input className='title' name='title' placeholder='제목을 입력해주세요' autoComplete='off' onChange={onChange} value={title} />
-                    <div className='count'>{count}/15</div>
+                    <div className='count'>{count}/20</div>
                 </div>
                 <Type onToggle={onToggle} type={type} />
             </div>

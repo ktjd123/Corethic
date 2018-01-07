@@ -10,6 +10,7 @@ class Main extends Component {
         id: '',
         name: '',
         valid: true,
+        all: [],
         free: [],
         btc: [],
         xrp: [],
@@ -20,49 +21,7 @@ class Main extends Component {
         newBoard: []
     }
 
-    //todo to -> id
-    mock = [
-        {
-            to: '/',
-            title: '걔가 누군데?',
-            time: '1분전',
-            writer: '김성민',
-            views: 20,
-            good: true
-        },
-        {
-            to: '/',
-            title: '걔가 누군데?',
-            time: '1분전',
-            writer: '김성민',
-            views: 20,
-            good: true
-        },
-        {
-            to: '/',
-            title: '걔가 누군데?',
-            time: '1분전',
-            writer: '김성민',
-            views: 20,
-            good: false
-        },
-        {
-            to: '/',
-            title: '걔가 누군데?',
-            time: '1분전',
-            writer: '김성민',
-            views: 20,
-            good: true
-        },
-        {
-            to: '/',
-            title: '걔가 누군데?',
-            time: '1분전',
-            writer: '김성민',
-            views: 20,
-            good: false
-        },
-    ]
+    loop = undefined;
 
     componentDidMount() {
         this.props.getInfoRequest().then(() => {
@@ -78,7 +37,24 @@ class Main extends Component {
                 })
             }
         })
+        this.loadAll()
+        this.loop = setInterval(this.loadAll, 5000)
+    }
 
+    componentWillUnmount() {
+        clearInterval(this.loop)
+    }
+    
+
+    loadAll = () => {
+        console.log('fetch')
+        this.props.getPostRequest('all', 5).then(() => {
+            if(this.props.post.status === "SUCCESS"){
+                this.setState({
+                    all: this.props.post.posts
+                })
+            }
+        })
         this.props.getPostRequest("free", 5).then(() => {
             if(this.props.post.status === "SUCCESS"){
                 this.setState({
@@ -140,12 +116,12 @@ class Main extends Component {
 
 
     render() {
-        const {valid, free, btc, xrp, eth, bth, ltc, dash, newBoard} = this.state
+        const {valid, all, free, btc, xrp, eth, bth, ltc, dash, newBoard} = this.state
         return (
             <div>
                 <MainTemplate
                 valid={valid}
-                 Entire={<Entire title="전체 - HOT"   posts={this.mock} to='/entire'/>}
+                 Entire={<Entire title="전체 - HOT"   posts={all} to='/entire'/>}
                  free={<Entire    title="자유게시판"      posts={free} to='/free'/>}
                  btc={<Entire    title="비트코인"      posts={btc} to='/btc'/>}
                  xrp={<Entire    title="리플"         posts={xrp} to='/xrp'/>}

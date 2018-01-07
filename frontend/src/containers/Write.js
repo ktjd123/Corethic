@@ -43,7 +43,7 @@ class Write extends Component {
     handleChange = (e) => {
         switch(e.target.name){
             case 'title':
-            if(e.target.value.length > 15) return
+            if(e.target.value.length > 20) return
             break
 
             case 'content':

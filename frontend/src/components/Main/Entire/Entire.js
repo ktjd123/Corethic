@@ -14,7 +14,7 @@ class Entire extends Component {
                 <Post
                     to={post._id}
                     title={post.title}
-                    time={'1분전'}
+                    time={post.date}
                     writer={post.writer}
                     views={post.views}
                     good={post.type}

@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import TimeAgo from 'react-timeago'
+import koreanString from 'react-timeago/lib/language-strings/ko'
+import buildFormatter from 'react-timeago/lib/formatters/buildFormatter'
 import './Post.css'
 
 import {Link} from 'react-router-dom'
@@ -7,14 +10,15 @@ class Post extends Component {
     render() {
         const {to, title, time, writer, views, good} = this.props
         const loading = '로딩중...'
+        const formatter = buildFormatter(koreanString)
         return (
-            <Link to={to || '/404'} className={`post ${good ? 'good' : 'bad'}`}>
+            <Link to={'/detail'+to || '/404'} className={`post ${good ? 'good' : 'bad'}`}>
                 <div className='info'>
                     <div className='title'>
                         {title || loading}
                     </div>
                     <div className='time'>
-                        {time || loading}
+                        {<TimeAgo date={time} formatter={formatter} /> || loading}
                     </div>
                 </div>
                 <div className='info2'>
