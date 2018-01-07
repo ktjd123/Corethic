@@ -3,3 +3,19 @@
     flex-direction: column;
     align-items: center;
 }
+.writeTemplate .inputT{
+    width: 80%;
+}
+.writeTemplate .contentT{
+    margin-top: 1rem;
+    width: 80%;
+}
+
+@media(max-width: 800px){
+    .writeTemplate .inputT{
+        width: 100%;
+    }
+    .writeTemplate .contentT{
+        width: 100%;
+    }
+}

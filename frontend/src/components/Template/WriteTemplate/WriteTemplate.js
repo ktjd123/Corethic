@@ -1,13 +1,16 @@
 import React from 'react';
 import './WriteTemplate.css'
-import {Header, Footer, WriteC} from 'components'
+import {Header, Footer} from 'components'
 
-const WriteTemplate = () => {
+const WriteTemplate = ({valid, input, content}) => {
     return (
         <div className='writeTemplate'>
-            <Header/>
-                <section className='writeT'>
-                    <WriteC/>
+            <Header valid = {valid}/>
+                <section className='inputT'>
+                    {input}
+                </section>
+                <section className='contentT'>
+                    {content}
                 </section>
             <Footer/>
         </div>

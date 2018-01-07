@@ -1,1 +1,2 @@
-export {default as WriteC} from './Write'
+export {Input} from './Input'
+export {Content} from './Content'
