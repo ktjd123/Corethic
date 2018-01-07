@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {WriteTemplate, Input, Content} from 'components'
+import {WriteTemplate, Info,Input, Content, Submit} from 'components'
 import {getInfoRequest} from 'actions/auth'
 import {connect} from 'react-redux'
 import {toast} from 'react-toastify'
@@ -29,12 +29,15 @@ class Write extends Component {
     
     render() {
         const {valid} = this.state
+        const board = this.props.match.params.board
         return (
             <div>
                 <WriteTemplate
                     valid = {valid}
+                    info = {<Info board={board}/>}
                     input = {<Input/>}
                     content = {<Content/>}
+                    submit = {<Submit board={board}/>}
                 />
             </div>
         );

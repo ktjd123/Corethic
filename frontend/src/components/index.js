@@ -6,6 +6,6 @@ export {Post} from './Post'
 export {Entire} from './Main'
 export {LoginC} from './Login'
 export {RegisterC} from './Register'
-export {Input, Content} from './Write'
+export {Input, Content, Submit, Info} from './Write'
 
 export {Error404} from './404'

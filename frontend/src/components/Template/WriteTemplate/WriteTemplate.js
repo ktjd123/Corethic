@@ -1,18 +1,24 @@
 import React from 'react';
 import './WriteTemplate.css'
-import {Header, Footer} from 'components'
+import { Header, Footer } from 'components'
 
-const WriteTemplate = ({valid, input, content}) => {
+const WriteTemplate = ({ valid, info, input, content, submit }) => {
     return (
         <div className='writeTemplate'>
-            <Header valid = {valid}/>
-                <section className='inputT'>
-                    {input}
-                </section>
-                <section className='contentT'>
-                    {content}
-                </section>
-            <Footer/>
+            <Header valid={valid} />
+            <section className='infoT'>
+                {info}
+            </section>
+            <section className='inputT'>
+                {input}
+            </section>
+            <section className='contentT'>
+                {content}
+            </section>
+            <section className='submitT'>
+                {submit}
+            </section>
+            <Footer />
         </div>
     );
 };

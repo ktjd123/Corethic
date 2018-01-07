@@ -3,12 +3,15 @@ import './MainTemplate.css'
 
 import {Header, Footer} from 'components'
 
-const MainTemplate = ({valid, Entire, btc, xrp, eth, bth, ltc, dash, newBoard}) => {
+const MainTemplate = ({valid, Entire, free, btc, xrp, eth, bth, ltc, dash, newBoard}) => {
     return (
         <div className='mainTemplate'>
             <Header valid={valid}/>
             <section className='entireT'>
                 {Entire}
+            </section>
+            <section className='entireT'>
+                {free}
             </section>
             <section className='entireT'>
                 {btc}

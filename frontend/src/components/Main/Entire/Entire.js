@@ -20,12 +20,19 @@ class Entire extends Component {
                 />
             )
         })
+        let write = (
+            <Link to={'/write'+to} className='write'>글쓰기</Link>
+        )
+        const entireRegex = /(entire)/
+        if(entireRegex.test(to)){
+            write = (<div className='write'></div>)
+        }
         return (
             <div className='entire'>
                 <div className='info'>
                     <Link to={'/board'+to} className='board'>더보기</Link>
                     <div className='title'>{title}</div>
-                    <Link to={'/write'+to} className='write'>글쓰기</Link>
+                    {write}
                 </div>
                 <div className='main'>
                     {postsR}

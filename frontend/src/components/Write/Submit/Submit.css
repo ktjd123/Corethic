@@ -1,0 +1,29 @@
+.submit{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.submit a{
+    border: 1px solid #eee;
+    border-radius: 1px;
+    padding: 5px 10px 5px 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.submit > .send{
+    background: #006494;
+}
+
+.submit > .cancel{
+    background: #BA4160;
+}
+
+.submit > .board {
+    background: #1C9249;
+}
+
+.submit > .main{
+    background: #BF2F7B;
+}

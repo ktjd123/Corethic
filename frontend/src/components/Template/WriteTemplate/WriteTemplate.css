@@ -4,11 +4,16 @@
     align-items: center;
 }
 .writeTemplate .inputT{
+    margin-top: 20px;
     width: 80%;
 }
 .writeTemplate .contentT{
     margin-top: 1rem;
     width: 80%;
+}
+.writeTemplate .submitT{
+    margin-top: 1rem;
+    width: 30%;
 }
 
 @media(max-width: 800px){
@@ -17,5 +22,8 @@
     }
     .writeTemplate .contentT{
         width: 100%;
+    }
+    .writeTemplate .submitT{
+        width: 80%;
     }
 }
