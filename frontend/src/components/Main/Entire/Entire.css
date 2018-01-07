@@ -20,6 +20,12 @@
     color: white;
     font-size: 1.3rem;
 }
+
+.entire > .info .board{
+    color: white;
+    padding-left: 20px;
+}
+
 .entire > .info .write{
     color: white;
     flex-grow: 1;

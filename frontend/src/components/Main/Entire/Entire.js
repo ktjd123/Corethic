@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 
 class Entire extends Component {
     render() {
-        const { title, posts } = this.props
+        const { title, posts, to } = this.props
         const postsR = posts.map((post, i) => {
             return (
                 <Post
@@ -23,8 +23,9 @@ class Entire extends Component {
         return (
             <div className='entire'>
                 <div className='info'>
+                    <Link to={'/board'+to} className='board'>더보기</Link>
                     <div className='title'>{title}</div>
-                    <Link to='/write' className='write'>글쓰기</Link>
+                    <Link to={'/write'+to} className='write'>글쓰기</Link>
                 </div>
                 <div className='main'>
                     {postsR}
