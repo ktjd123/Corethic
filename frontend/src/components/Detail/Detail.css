@@ -32,3 +32,26 @@
     padding: 10px;
     border-bottom: 2px solid #959EA2;
 }
+
+.detail > .buttons{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    width: 20%;
+}
+
+.detail > .buttons a{
+    border: 1px solid #eee;
+    border-radius: 1px;
+    padding: 5px 10px 5px 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.detail > .buttons .board{
+    background: #1C9249;
+}
+
+.detail > .buttons .main{
+    background: #BA4160;
+}

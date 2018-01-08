@@ -7,8 +7,7 @@ import {Link} from 'react-router-dom'
 class Entire extends Component {
     render() {
         const { title, posts, to } = this.props
-        // todo change key to _id
-        // apply time ago
+
         const postsR = posts.map((post,i) => {
             return (
                 <Post

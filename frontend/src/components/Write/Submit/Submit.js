@@ -8,7 +8,7 @@ class Submit extends Component {
             <div className='submit'>
                 <a className='send' onClick={onPost}>등록</a>
                 <Link to='/' className='cancel'>취소</Link>
-                <Link to={'/'+board || '/404'} className='board'>목록</Link>
+                <Link to={'/board/'+board || '/404'} className='board'>목록</Link>
             </div>
         );
     }

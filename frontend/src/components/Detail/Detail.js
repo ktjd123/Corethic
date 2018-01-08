@@ -3,6 +3,7 @@ import './Detail.css'
 import TimeAgo from 'react-timeago'
 import koreanString from 'react-timeago/lib/language-strings/ko'
 import buildFormatter from 'react-timeago/lib/formatters/buildFormatter'
+import {Link} from 'react-router-dom'
 
 class Detail extends Component {
     render() {
@@ -25,6 +26,10 @@ class Detail extends Component {
                     <div className='time'>
                         {typeof post.date !== 'undefined' ? <TimeAgo date={post.date} formatter={formatter} /> : loading}
                     </div>
+                </div>
+                <div className='buttons'>
+                    <Link to={'/board/'+post.board} className='board'>목록</Link>
+                    <Link to='/' className='main' >메인</Link>
                 </div>
             </div>
         );
