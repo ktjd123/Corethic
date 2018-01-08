@@ -8,7 +8,7 @@ import Comment from './Comment/Comment'
 
 class Detail extends Component {
     render() {
-        const { post, comments, commentInput, onChange, commentCount, onComment } = this.props
+        const { post, comments, commentInput, onChange, commentCount, onComment, onEnter } = this.props
         const loading = '로딩중...'
         const formatter = buildFormatter(koreanString)
         const commentToShow = comments.map(comment => {
@@ -46,7 +46,7 @@ class Detail extends Component {
                 <div className='comment'>
                     <div className='input'>
                         <div className='inputBox'>
-                            <input value={commentInput} onChange={onChange} placeholder='댓글을 입력해주세요' />
+                            <input value={commentInput} onChange={onChange} placeholder='댓글을 입력해주세요' onKeyPress={onEnter} />
                             <div className='count'>{commentCount}/30</div>
                         </div>
                         <a onClick={onComment} >달기</a>

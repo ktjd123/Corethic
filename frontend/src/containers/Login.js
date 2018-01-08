@@ -50,16 +50,22 @@ class Login extends Component {
         })
     }
 
+    handleEnter = (e) => {
+        if(e.charCode === 13){
+            this.handleLogin()
+        }
+    }
+
     render() {
-        const {id, pw} = this.state
         const {
             handleChange,
-            handleLogin
+            handleLogin,
+            handleEnter
         } = this
         return (
             <div>
                 <LoginTemplate 
-                login={<LoginC id={id} pw={pw} onChange={handleChange} onLogin={handleLogin}/>}
+                login={<LoginC {...this.state} onChange={handleChange} onLogin={handleLogin} onEnter={handleEnter} />}
                 />
             </div>
         );

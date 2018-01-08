@@ -57,6 +57,12 @@ class Detail extends Component {
         })
     }
 
+    handleEnter = (e) => {
+        if(e.charCode === 13){
+            this.handleComment()
+        }
+    }
+
     handleChange = e => {
         if(e.target.value.length > 30){
             return
@@ -69,6 +75,9 @@ class Detail extends Component {
 
     handleComment = () => {
         const {commentInput} = this.state
+        if(commentInput < 1){
+            toast.error('댓글을 입력해주세요')
+        }
         this.props.commentRequest(this.props.match.params.id, commentInput).then(() => {
             if(this.props.comment.add.status === "SUCCESS"){
                 toast.success('댓글을 입력했습니다!')
@@ -98,7 +107,8 @@ class Detail extends Component {
     render() {
         const {
             handleChange,
-            handleComment
+            handleComment,
+            handleEnter
         } = this
         const {board} = this.props.match.params
         return (
@@ -106,7 +116,7 @@ class Detail extends Component {
                 <DetailTemplate
                     valid={this.state.valid}
                     info={<Info board={board}/>}
-                    detail={<DetailC post={this.state.post} {...this.state} onChange={handleChange} onComment={handleComment} />}
+                    detail={<DetailC post={this.state.post} {...this.state} onChange={handleChange} onComment={handleComment} onEnter={handleEnter} />}
                 />
             </div>
         );

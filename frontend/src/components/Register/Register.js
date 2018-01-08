@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 class Register extends Component {
     render() {
-        const {id, pw, name, email, onChange, onRegister} = this.props
+        const {id, pw, name, email, onChange, onRegister, onEnter} = this.props
         return (
             <div className='register'>
                 <div className='holder'>
@@ -21,7 +21,7 @@ class Register extends Component {
                 </div>
                 <div className='holder'>
                     <i className='material-icons'>account_circle</i>
-                    <input type='phone' placeholder='닉네임' className='name' value={name} onChange={onChange} />
+                    <input type='phone' placeholder='닉네임' className='name' value={name} onChange={onChange} onKeyPress={onEnter} />
                 </div>
                 <div className='registerCon'>
                     <a className='registerB' onClick={onRegister}>회원가입</a>

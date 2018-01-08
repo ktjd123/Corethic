@@ -62,17 +62,23 @@ class Register extends Component {
         })
     }
 
+    handleEnter = (e) => {
+        if(e.charCode === 13){
+            this.handleRegister()
+        }
+    }
+
 
     render() {
-        const {id, pw, name, email} = this.state
         const {
             handleChange,
-            handleRegister
+            handleRegister,
+            handleEnter
         } = this
         return (
             <div>
                 <RegisterTemplate 
-                register={<RegisterC id={id} pw={pw} name={name} email={email} onChange={handleChange} onRegister={handleRegister}/>}
+                register={<RegisterC {...this.state} onChange={handleChange} onRegister={handleRegister} onEnter={handleEnter}/>}
                 />
             </div>
         );
