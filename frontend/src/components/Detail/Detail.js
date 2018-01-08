@@ -4,10 +4,11 @@ import TimeAgo from 'react-timeago'
 import koreanString from 'react-timeago/lib/language-strings/ko'
 import buildFormatter from 'react-timeago/lib/formatters/buildFormatter'
 import { Link } from 'react-router-dom'
+import Comment from './Comment/Comment'
 
 class Detail extends Component {
     render() {
-        const { post , commentInput, onChange, commentCount, onComment} = this.props
+        const { post,comment , commentInput, onChange, commentCount, onComment} = this.props
         const loading = '로딩중...'
         const formatter = buildFormatter(koreanString)
         return (
@@ -39,6 +40,9 @@ class Detail extends Component {
                             <div className='count'>{commentCount}/30</div>
                         </div>
                         <a onClick={onComment} >달기</a>
+                    </div>
+                    <div className='commentList'>
+                        <Comment comment={comment}/>
                     </div>
                 </div>
             </div>
