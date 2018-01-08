@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-import { BoardTemplate, Info } from 'components'
+import { BoardTemplate, Info, BoardList, BoardButtons } from 'components'
 import { connect } from 'react-redux'
 import { getInfoRequest } from 'actions/auth'
+import {getPostRequest} from 'actions/post'
 
 class Board extends Component {
 
     state = {
-        valid: true
+        valid: true,
+        posts: []
     }
-
+    loop = undefined
     componentDidMount() {
         this.props.getInfoRequest().then(() => {
             if (this.props.main.valid) {
@@ -21,16 +23,34 @@ class Board extends Component {
                 })
             }
         })
+        this.getPost()
+        this.loop = setInterval(this.getPost, 3000)
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.loop)
+    }
+    
+    getPost = () => {
+        this.props.getPostRequest(this.props.match.params.board, 30).then(() =>{
+            if(this.props.post.status === "SUCCESS"){
+                this.setState({
+                    posts: this.props.post.posts
+                })
+            }
+        })
     }
 
     render() {
-        const { valid } = this.state
+        const { valid, posts } = this.state
         const { board } = this.props.match.params
         return (
             <div>
                 <BoardTemplate
                     valid={valid}
                     info={<Info board={board} />}
+                    boardList={<BoardList posts = {posts}/>}
+                    boardButtons={<BoardButtons board={this.props.match.params.board}/>}
                 />
             </div>
         );
@@ -39,7 +59,8 @@ class Board extends Component {
 
 const mapStateToProps = state => {
     return {
-        main: state.auth.main
+        main: state.auth.main,
+        post: state.post.getPost
     }
 }
 
@@ -47,6 +68,9 @@ const mapDispatchToProps = dispatch => {
     return {
         getInfoRequest: () => {
             return dispatch(getInfoRequest())
+        },
+        getPostRequest: (board, limit) => {
+            return dispatch(getPostRequest(board, limit))
         }
     }
 }

@@ -1,0 +1,14 @@
+.boardButtons{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.boardButtons > a{
+    border: 1px solid #eee;
+    border-radius: 1px;
+    padding: 5px 10px 5px 10px;
+    color: white;
+    cursor: pointer;
+    background: #006494;
+}

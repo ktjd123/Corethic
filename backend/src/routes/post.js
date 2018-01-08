@@ -65,6 +65,33 @@ router.post('/get', (req, res) => {
     }
 })
 
+router.post('/getByTime', (req, res) => {
+    const body = req.body
+    const schema = Joi.object().keys({
+        board: Joi.string().trim().min(1).max(10).required(),
+        limit: Joi.number().min(1).max(30).required()
+    })
+    const result = Joi.validate({ board: body.board, limit: body.limit }, schema)
+    if (result.error) {
+        return res.status(400).json({
+            code: 0
+        })
+    }
+    if (body.board === "all") {
+        Post.find().sort({"views": -1}).sort({"date": -1}).limit(body.limit).exec().then(posts => {
+            return res.json(posts)
+        }).catch(err => {
+            throw err
+        })
+    } else {
+        Post.find({ "board": body.board }).sort({"date": -1}).sort({ "views": -1 }).limit(body.limit).exec().then(posts => {
+            return res.json(posts)
+        }).catch(err => {
+            throw err
+        })
+    }
+})
+
 router.post('/detail', (req,res) => {
     const body = req.body
     const schema = Joi.object().keys({

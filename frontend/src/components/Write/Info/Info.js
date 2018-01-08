@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import './Info.css'
 
+import {Link} from 'react-router-dom'
+
 class Info extends Component {
     render() {
         const {board} = this.props
         let boardToShow = ''
         switch(board){
+
+            case 'all':
+            boardToShow='전체 - hot'
+            break
+
             case "free":
             boardToShow='자유게시판'
             break
@@ -44,9 +51,9 @@ class Info extends Component {
         }
         // todo make div to link to board
         return (
-            <div className='infoC'>
+            <Link to={'/board/'+board} className='infoC'>
                 {boardToShow}
-            </div>
+            </Link>
         );
     }
 }

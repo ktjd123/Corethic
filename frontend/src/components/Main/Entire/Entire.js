@@ -8,7 +8,7 @@ class Entire extends Component {
     render() {
         const { title, posts, to } = this.props
 
-        const postsR = posts.map((post,i) => {
+        const postsR = posts.map((post) => {
             return (
                 <Post
                     to={post._id}
@@ -18,7 +18,7 @@ class Entire extends Component {
                     views={post.views}
                     good={post.type}
                     board = {post.board}
-                    key={i}
+                    key={post._id}
                 />
             )
         })

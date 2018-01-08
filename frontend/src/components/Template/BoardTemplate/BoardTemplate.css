@@ -3,3 +3,26 @@
     flex-direction: column;
     align-items: center;
 }
+
+.boardTemplate .infoT{
+    border-bottom: 1px solid #eee;
+}
+
+.boardTemplate .buttonT{
+    width: 80%;
+}
+
+.boardTemplate .boardListT{
+    margin-top: 20px;
+    width: 500px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 800px){
+    .boardTemplate .buttonT{
+        width: 100%;
+    }
+    .boardTemplate .boardListT{
+        width: 100%;
+    }
+}
