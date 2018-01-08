@@ -6,15 +6,16 @@
 
 .detailTemplate > .infoT{
     margin-bottom: 10px;
-    border-bottom: 1px solid lightgray;
 }
 
 .detailTemplate > .detailT{
+    border-top: 1px solid lightgray;
+    padding-top: 20px;
     width: 80%;
 }
 
 @media (max-width: 800px){
     .detailTemplate > .detailT{
-        width: 100%;
+        width: 95%;
     }
 }

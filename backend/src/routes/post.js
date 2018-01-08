@@ -82,7 +82,11 @@ router.post('/detail', (req,res) => {
                 code: 1
             })
         }
-        return res.json(post)
+        post.views = post.views + 1
+        post.save(err => {
+            if(err) throw err
+            return res.json(post)
+        })
     }).catch(err => {
         throw err
     })

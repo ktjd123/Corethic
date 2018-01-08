@@ -42,6 +42,7 @@ class Info extends Component {
             boardToShow='오류'
             break
         }
+        // todo make div to link to board
         return (
             <div className='infoC'>
                 {boardToShow}

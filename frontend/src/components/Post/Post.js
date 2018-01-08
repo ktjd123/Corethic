@@ -23,7 +23,7 @@ class Post extends Component {
                 </div>
                 <div className='info2'>
                     <div className='writer'>{writer || loading}</div>
-                    <div className='views'>조회수: {typeof views !== 'undefined' ? views : loading}</div>
+                    <div className='views'>영향력: {typeof views !== 'undefined' ? views : loading}원</div>
                 </div>
             </Link>
         );
