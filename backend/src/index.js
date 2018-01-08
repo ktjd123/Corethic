@@ -8,6 +8,7 @@ import session from 'express-session';
 import path from 'path'
 
 import api from './routes';
+import {currentUser} from './helper/currentUsers'
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(function(err, req, res, next){
     console.error(err.stack)
     res.status(500).send("Something broke!")
 })
+app.use(currentUser)
 
 
 app.use(bodyParser.json());
