@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BoardTemplate, Info, BoardList, BoardButtons } from 'components'
 import { connect } from 'react-redux'
 import { getInfoRequest } from 'actions/auth'
-import {getPostRequest} from 'actions/post'
+import {getByTimeRequest} from 'actions/post'
 
 class Board extends Component {
 
@@ -32,7 +32,7 @@ class Board extends Component {
     }
     
     getPost = () => {
-        this.props.getPostRequest(this.props.match.params.board, 30).then(() =>{
+        this.props.getByTimeRequest(this.props.match.params.board, 30).then(() =>{
             if(this.props.post.status === "SUCCESS"){
                 this.setState({
                     posts: this.props.post.posts
@@ -60,7 +60,7 @@ class Board extends Component {
 const mapStateToProps = state => {
     return {
         main: state.auth.main,
-        post: state.post.getPost
+        post: state.post.getTime
     }
 }
 
@@ -69,8 +69,8 @@ const mapDispatchToProps = dispatch => {
         getInfoRequest: () => {
             return dispatch(getInfoRequest())
         },
-        getPostRequest: (board, limit) => {
-            return dispatch(getPostRequest(board, limit))
+        getByTimeRequest: (board, limit) => {
+            return dispatch(getByTimeRequest(board, limit))
         }
     }
 }

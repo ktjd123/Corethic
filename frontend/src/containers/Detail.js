@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {DetailTemplate, Info, DetailC} from 'components'
 import {getInfoRequest} from 'actions/auth'
 import {getDetailRequest} from 'actions/post'
-import {commentRequest} from 'actions/comment'
+import {commentRequest, getCommentRequest} from 'actions/comment'
 import {connect} from 'react-redux'
 import {toast} from 'react-toastify'
 
@@ -14,7 +14,7 @@ class Detail extends Component {
         post: Object,
         commentInput: '',
         commentCount: 0,
-        comment: Object
+        comments: []
     }
 
     loop = undefined
@@ -47,6 +47,13 @@ class Detail extends Component {
                 ]
                 toast.error(errorCode[this.props.detail.error])
                 this.props.history.push('/')
+            }
+        })
+        this.props.getCommentRequest(this.props.match.params.id).then(() => {
+            if(this.props.comment.get.status === "SUCCESS"){
+                this.setState({
+                    comments: this.props.comment.get.comments
+                })
             }
         })
     }
@@ -125,6 +132,9 @@ const mapDispatchToProps = dispatch => {
         },
         getInfoRequest: () => {
             return dispatch(getInfoRequest())
+        },
+        getCommentRequest: (id) => {
+            return dispatch(getCommentRequest(id))
         }
     }
 }

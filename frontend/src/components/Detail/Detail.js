@@ -8,9 +8,19 @@ import Comment from './Comment/Comment'
 
 class Detail extends Component {
     render() {
-        const { post,comment , commentInput, onChange, commentCount, onComment} = this.props
+        const { post, comments, commentInput, onChange, commentCount, onComment } = this.props
         const loading = '로딩중...'
         const formatter = buildFormatter(koreanString)
+        const commentToShow = comments.map(comment => {
+            return (
+                <Comment
+                    content={comment.content}
+                    writer={comment.writer}
+                    date={comment.date}
+                    key={comment._id}
+                />
+            )
+        })
         return (
             <div className='detail'>
                 <div className='info'>
@@ -42,7 +52,7 @@ class Detail extends Component {
                         <a onClick={onComment} >달기</a>
                     </div>
                     <div className='commentList'>
-                        <Comment comment={comment}/>
+                        {commentToShow}
                     </div>
                 </div>
             </div>

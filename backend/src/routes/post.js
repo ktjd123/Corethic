@@ -78,7 +78,7 @@ router.post('/getByTime', (req, res) => {
         })
     }
     if (body.board === "all") {
-        Post.find().sort({"views": -1}).sort({"date": -1}).limit(body.limit).exec().then(posts => {
+        Post.find().sort({"date": -1}).sort({"views": -1}).limit(body.limit).exec().then(posts => {
             return res.json(posts)
         }).catch(err => {
             throw err

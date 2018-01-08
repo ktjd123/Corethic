@@ -11,7 +11,7 @@ router.post('/add', (req, res) => {
         id: Joi.string().trim().required(),
         content: Joi.string().trim().min(1).max(30).required()
     })
-    const result = Joi.validate({ id: body.id, content: body.id }, schema)
+    const result = Joi.validate({ id: body.id, content: body.content }, schema)
     if (result.error) {
         return res.status(400).json({
             code: 0
@@ -46,7 +46,7 @@ router.post('/add', (req, res) => {
     })
 })
 
-router.get('/get', (req, res) => {
+router.post('/get', (req, res) => {
     const body = req.body
     const schema = Joi.object().keys({
         id: Joi.string().trim().required()

@@ -1,0 +1,23 @@
+.commentC{
+    display: flex;
+    flex-direction: column;
+    background: rgba(24, 180, 233, 0.12);;
+    font-size: 1rem;
+    padding: 10px;
+}
+
+.commentC + .commentC {
+    margin-top: 5px;
+}
+
+.commentC > .contentC {
+    font-size: 1.1rem;
+}
+.commentC > .info{
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1rem;
+    color: gray;
+}

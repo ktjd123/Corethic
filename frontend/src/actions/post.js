@@ -126,7 +126,7 @@ export function getByTime(){
 export function getByTimeSuccess(posts){
     return{
         type: GET_BY_TIME_SUCCESS,
-        post
+        posts
     }
 }
 
