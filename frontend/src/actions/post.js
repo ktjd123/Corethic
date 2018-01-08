@@ -7,7 +7,10 @@ import {
     GET_POST_FAILURE,
     GET_DETAIL,
     GET_DETAIL_SUCCESS,
-    GET_DETAIL_FAILURE
+    GET_DETAIL_FAILURE,
+    GET_BY_TIME,
+    GET_BY_TIME_SUCCESS,
+    GET_BY_TIME_FAILURE
 } from './ActionTypes'
 import axios from 'axios'
 
@@ -99,6 +102,37 @@ export function getDetailSuccess(post){
 export function getDetailFailure(code){
     return {
         type: GET_DETAIL_FAILURE,
+        code
+    }
+}
+
+export function getByTimeRequest(board, limit){
+    return dispatch => {
+        dispatch(getByTime())
+        return axios.post('/api/post/getByTime', {board,limit}).then(res => {
+            dispatch(getByTimeSuccess(res.data))
+        }).catch(err => {
+            dispatch(getByTimeFailure(err.response.data.code))
+        })
+    }
+}
+
+export function getByTime(){
+    return{
+        type: GET_BY_TIME
+    }
+}
+
+export function getByTimeSuccess(posts){
+    return{
+        type: GET_BY_TIME_SUCCESS,
+        post
+    }
+}
+
+export function getByTimeFailure(code){
+    return {
+        type: GET_BY_TIME_FAILURE,
         code
     }
 }

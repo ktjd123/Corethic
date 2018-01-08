@@ -25,7 +25,7 @@ class Entire extends Component {
         let write = (
             <Link to={'/write'+to} className='write'>글쓰기</Link>
         )
-        const entireRegex = /(entire)/
+        const entireRegex = /(all)/
         if(entireRegex.test(to)){
             write = (<div className='write'></div>)
         }
