@@ -84,8 +84,7 @@ class Write extends Component {
         this.props.postRequest(title, content, board, typeToSend).then(() => {
             if(this.props.post.status === "SUCCESS"){
                 toast.success('등록했습니다')
-                // todo push to board page
-                this.props.history.push('/')
+                this.props.history.push('/board/'+board)
             }else{
                 const errorMsg = [
                     '다시 시도해주세요',

@@ -8,7 +8,6 @@ import {toast} from 'react-toastify'
 
 class Detail extends Component {
 
-    // todo get comment
     state = {
         valid: true,
         post: Object,
