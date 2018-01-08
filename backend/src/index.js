@@ -16,8 +16,6 @@ app.use(function(err, req, res, next){
     console.error(err.stack)
     res.status(500).send("Something broke!")
 })
-app.use(currentUser)
-
 
 app.use(bodyParser.json());
 app.use(morgan('dev'))
@@ -46,6 +44,7 @@ app.use(session({
     })
 }))
 
+app.use(currentUser)
 app.use('/api', api);
 
 //client side routing support

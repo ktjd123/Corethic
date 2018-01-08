@@ -15,7 +15,7 @@ router.post('/get', (req,res) => {
     }
     Statics.count().exec(count => {
         return res.json({
-            count: count / 20
+            count: count / 100
         })
     })
 })

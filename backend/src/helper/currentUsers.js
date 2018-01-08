@@ -1,7 +1,7 @@
 
 import Statics from '../models/Statics'
 
-export const currentUser = function(err, req, res, next){
+export const currentUser = function(req, res, next){
     let who = undefined
     if(typeof req.session.loginInfo === 'undefined'){
         who = 'nobody'
@@ -11,8 +11,9 @@ export const currentUser = function(err, req, res, next){
     let user = new Statics({
         who: who
     })
+
     user.save(err => {
-        throw err
+        if(err) throw err
+        next()
     })
-    next()
 }
