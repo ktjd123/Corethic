@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 class Detail extends Component {
     render() {
-        const { post , commentInput, onChange, commentCount} = this.props
+        const { post , commentInput, onChange, commentCount, onComment} = this.props
         const loading = '로딩중...'
         const formatter = buildFormatter(koreanString)
         return (
@@ -35,10 +35,10 @@ class Detail extends Component {
                 <div className='comment'>
                     <div className='input'>
                         <div className='inputBox'>
-                            <input value={commentInput} onChange={onChange} />
+                            <input value={commentInput} onChange={onChange} placeholder='댓글을 입력해주세요' />
                             <div className='count'>{commentCount}/30</div>
                         </div>
-                        <a>달기</a>
+                        <a onClick={onComment} >달기</a>
                     </div>
                 </div>
             </div>

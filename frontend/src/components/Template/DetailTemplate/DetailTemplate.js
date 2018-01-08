@@ -2,10 +2,10 @@ import React from 'react';
 import './DetailTemplate.css'
 import { Header, Footer } from 'components'
 
-const DetailTemplate = ({ info, detail }) => {
+const DetailTemplate = ({valid, info, detail }) => {
     return (
         <div className='detailTemplate' >
-            <Header />
+            <Header valid={valid} />
             <section className='infoT'>
                 {info}
             </section>

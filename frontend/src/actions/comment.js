@@ -12,10 +12,10 @@ export function commentRequest(id, content){
     return dispatch => {
         dispatch(comment())
 
-        return axios.post('/comment/add', {id, content}).then(res => {
-            dispatch(getCommentSuccess())
+        return axios.post('/api/comment/add', {id, content}).then(res => {
+            dispatch(commentSuccess())
         }).catch(err => {
-            dispatch(getCommentFailure(err.response.data.code))
+            dispatch(commentFailure(err.response.data.code))
         })
     }
 }
@@ -43,7 +43,7 @@ export function getCommentRequest(id){
     return dispatch => {
         dispatch(getComment())
 
-        return axios.post('/comment/get', {id}).then(res => {
+        return axios.post('/api/comment/get', {id}).then(res => {
             dispatch(getCommentSuccess(res.data))
         }).catch(err => {
             dispatch(getCommentFailure(err.response.data.code))

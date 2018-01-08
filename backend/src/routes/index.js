@@ -7,7 +7,7 @@ const router = express.Router()
 
 router.use('/auth', account)
 router.use('/post', post)
-router.get('/comment', comment)
+router.use('/comment', comment)
 
 router.get('/heart_beat', (req,res) => {
     return res.send('It works!')

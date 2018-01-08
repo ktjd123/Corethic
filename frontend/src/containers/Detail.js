@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {DetailTemplate, Info, DetailC} from 'components'
+import {getInfoRequest} from 'actions/auth'
 import {getDetailRequest} from 'actions/post'
+import {commentRequest} from 'actions/comment'
 import {connect} from 'react-redux'
 import {toast} from 'react-toastify'
 
@@ -8,6 +10,7 @@ class Detail extends Component {
 
     // todo get comment
     state = {
+        valid: true,
         post: Object,
         commentInput: '',
         commentCount: 0,
@@ -18,6 +21,12 @@ class Detail extends Component {
     componentDidMount() {
         this.getDetail()
         this.loop = setInterval(this.getDetail, 3000)
+        
+        this.props.getInfoRequest().then(() => {
+            this.setState({
+                valid: this.props.main.valid
+            })
+        })
     }
 
     componentWillUnmount() {
@@ -52,16 +61,46 @@ class Detail extends Component {
         })
     }
 
+    handleComment = () => {
+        const {commentInput} = this.state
+        this.props.commentRequest(this.props.match.params.id, commentInput).then(() => {
+            if(this.props.comment.add.status === "SUCCESS"){
+                toast.success('댓글을 입력했습니다!')
+                this.setState({
+                    commentInput: '',
+                    commentCount: 0
+                })
+                this.getDetail()
+            }else{
+                const errorMsg = [
+                    '입력값을 확인해주세요',
+                    '로그인 후에 댓글을 달 수 있습니다',
+                    '없는 글입니다'
+                ]
+                toast.error(errorMsg[this.props.comment.add.error])
+                if(this.props.comment.add.error === 1){
+                    this.props.history.push('/login')
+                }
+                if(this.props.comment.add.error === 2){
+                    this.props.history.push('/')
+                }
+                return
+            }
+        })
+    }
+
     render() {
         const {
-            handleChange
+            handleChange,
+            handleComment
         } = this
         const {board} = this.props.match.params
         return (
             <div>
                 <DetailTemplate
+                    valid={this.state.valid}
                     info={<Info board={board}/>}
-                    detail={<DetailC post={this.state.post} {...this.state} onChange={handleChange} />}
+                    detail={<DetailC post={this.state.post} {...this.state} onChange={handleChange} onComment={handleComment} />}
                 />
             </div>
         );
@@ -70,7 +109,9 @@ class Detail extends Component {
 
 const mapStateToPros = state => {
     return {
-        detail: state.post.detail
+        detail: state.post.detail,
+        comment: state.comment,
+        main: state.auth.main
     }
 }
 
@@ -78,6 +119,12 @@ const mapDispatchToProps = dispatch => {
     return {
         getDetailRequest: (id) => {
             return dispatch(getDetailRequest(id))
+        },
+        commentRequest: (id, content) => {
+            return dispatch(commentRequest(id, content))
+        },
+        getInfoRequest: () => {
+            return dispatch(getInfoRequest())
         }
     }
 }
