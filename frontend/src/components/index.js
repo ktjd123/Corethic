@@ -1,7 +1,7 @@
 
 export {Header} from './Header'
 export {Footer} from './Footer'
-export {MainTemplate, LoginTemplate, RegisterTemplate, WriteTemplate, DetailTemplate} from './Template'
+export {MainTemplate, LoginTemplate, RegisterTemplate, WriteTemplate, DetailTemplate, BoardTemplate} from './Template'
 export {Post} from './Post'
 export {Entire} from './Main'
 export {LoginC} from './Login'

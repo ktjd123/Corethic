@@ -31,6 +31,11 @@ class Detail extends Component {
                     <Link to={'/board/'+post.board} className='board'>목록</Link>
                     <Link to='/' className='main' >메인</Link>
                 </div>
+                <div className='comment'>
+                    <div className='input'>
+                        <input/>
+                    </div>
+                </div>
             </div>
         );
     }

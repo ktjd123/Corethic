@@ -45,6 +45,11 @@
 
 .post .info2 .views{
     color: gray;
+    width: 100px;
+}
+
+.post .info2 .board{
+    color: gray;
 }
 
 @media (max-width: 800px){
