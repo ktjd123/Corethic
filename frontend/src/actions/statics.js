@@ -24,6 +24,7 @@ export function getStatics(){
 }
 
 export function getStaticsSuccess(count){
+    console.log(count)
     return {
         type: GET_STATICS_SUCCESS,
         count

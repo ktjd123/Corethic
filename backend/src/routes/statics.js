@@ -13,7 +13,7 @@ router.post('/get', (req,res) => {
             code: 1
         })
     }
-    Statics.count().exec(count => {
+    Statics.count().exec().then(count => {
         return res.json({
             count: count / 100
         })
