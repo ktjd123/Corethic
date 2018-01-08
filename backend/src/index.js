@@ -59,13 +59,13 @@ app.listen(port, () => {
     console.log('Express is running on port', port);
 });
 
-if (!process.env.NODE_ENV == "development") {
+if (!process.env.NODE_ENV === "development") {
     const redirectApp = express()
     redirectApp.use('*', (req, res) => {
-        res.redirect('https://aiaikasa.com' + req.url);
+        res.redirect('https://corethic.com' + req.url);
     })
 
-    redirectApp.listen(5000, () => {
+    redirectApp.listen(4001, () => {
         console.log('Redirect server running on port 8000')
     })
 }

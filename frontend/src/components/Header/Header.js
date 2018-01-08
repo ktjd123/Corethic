@@ -16,7 +16,8 @@ class Header extends Component {
         }
         if(valid){
             login = (
-                <a><i className='material-icons'>person</i></a>
+                // <a><i className='material-icons'>person</i></a>
+                undefined
             )
         }
         return (
