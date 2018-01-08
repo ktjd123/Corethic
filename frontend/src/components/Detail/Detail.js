@@ -3,11 +3,11 @@ import './Detail.css'
 import TimeAgo from 'react-timeago'
 import koreanString from 'react-timeago/lib/language-strings/ko'
 import buildFormatter from 'react-timeago/lib/formatters/buildFormatter'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class Detail extends Component {
     render() {
-        const { post } = this.props
+        const { post , commentInput, onChange, commentCount} = this.props
         const loading = '로딩중...'
         const formatter = buildFormatter(koreanString)
         return (
@@ -28,12 +28,17 @@ class Detail extends Component {
                     </div>
                 </div>
                 <div className='buttons'>
-                    <Link to={'/board/'+post.board} className='board'>목록</Link>
+                    <Link to={'/board/' + post.board} className='board'>목록</Link>
                     <Link to='/' className='main' >메인</Link>
                 </div>
+                <div className='commentDes'>댓글</div>
                 <div className='comment'>
                     <div className='input'>
-                        <input/>
+                        <div className='inputBox'>
+                            <input value={commentInput} onChange={onChange} />
+                            <div className='count'>{commentCount}/30</div>
+                        </div>
+                        <a>달기</a>
                     </div>
                 </div>
             </div>

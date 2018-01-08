@@ -8,7 +8,10 @@ class Detail extends Component {
 
     // todo get comment
     state = {
-        post: Object
+        post: Object,
+        commentInput: '',
+        commentCount: 0,
+        comment: Object
     }
 
     loop = undefined
@@ -39,13 +42,26 @@ class Detail extends Component {
         })
     }
 
+    handleChange = e => {
+        if(e.target.value.length > 30){
+            return
+        }
+        this.setState({
+            commentInput: e.target.value,
+            commentCount: e.target.value.length
+        })
+    }
+
     render() {
+        const {
+            handleChange
+        } = this
         const {board} = this.props.match.params
         return (
             <div>
                 <DetailTemplate
                     info={<Info board={board}/>}
-                    detail={<DetailC post={this.state.post}/>}
+                    detail={<DetailC post={this.state.post} {...this.state} onChange={handleChange} />}
                 />
             </div>
         );

@@ -121,7 +121,7 @@ class Main extends Component {
             <div>
                 <MainTemplate
                 valid={valid}
-                 Entire={<Entire title="전체 - HOT"   posts={all} to='/entire'/>}
+                 Entire={<Entire title="전체 - HOT"   posts={all} to='/all'/>}
                  free={<Entire    title="자유게시판"      posts={free} to='/free'/>}
                  btc={<Entire    title="비트코인"      posts={btc} to='/btc'/>}
                  xrp={<Entire    title="리플"         posts={xrp} to='/xrp'/>}
