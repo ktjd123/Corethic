@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import compression from 'compression'
 import morgan from 'morgan';
 
 import mongoose from 'mongoose';
@@ -18,6 +19,7 @@ app.use(function(err, req, res, next){
 })
 
 app.use(bodyParser.json());
+app.use(compression())
 app.use(morgan('dev'))
 
 mongoose.Promise = global.Promise;
@@ -49,9 +51,6 @@ app.use('/api', api);
 
 //client side routing support
 app.use(express.static(path.resolve(__dirname, "..", "frontend")))
-app.get('/robots.txt', (req,res)=> {
-    res.sendFile(path.resolve(__dirname, "..", "frontend", "robots.txt"))
-})
 app.get('*', (req,res)=> {
     res.sendFile(path.resolve(__dirname, "..", "frontend", "index.html"))
 })
