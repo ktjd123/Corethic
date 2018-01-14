@@ -12,6 +12,9 @@ router.use('/comment', comment)
 router.use('/statics', statics)
 
 router.get('/heart_beat', (req,res) => {
+    req.session.destroy(err => {
+        if(err) throw err
+    })
     return res.send('It works!')
 })
 

@@ -9,11 +9,11 @@ import session from 'express-session';
 import path from 'path'
 
 import api from './routes';
-import {currentUser} from './helper/currentUsers'
+import { currentUser } from './helper/currentUsers'
 
 const app = express();
 
-app.use(function(err, req, res, next){
+app.use(function (err, req, res, next) {
     console.error(err.stack)
     res.status(500).send("Something broke!")
 })
@@ -26,8 +26,8 @@ mongoose.Promise = global.Promise;
 mongoose.set('debug', true);
 const db = mongoose.connection;
 mongoose.connect('mongodb://localhost/corethic', (err, db) => {
-    if(err){console.error(err)}
-    else{console.log('connected to mongodb server')}
+    if (err) { console.error(err) }
+    else { console.log('connected to mongodb server') }
 })
 
 
@@ -41,7 +41,7 @@ app.use(session({
         maxAge: 365 * 24 * 60 * 60 * 1000
     },
     store: new MongoStore({
-       mongooseConnection: mongoose.connection,
+        mongooseConnection: mongoose.connection,
         ttl: 365 * 24 * 60 * 60
     })
 }))
@@ -51,7 +51,7 @@ app.use('/api', api);
 
 //client side routing support
 app.use(express.static(path.resolve(__dirname, "..", "frontend")))
-app.get('*', (req,res)=> {
+app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, "..", "frontend", "index.html"))
 })
 
@@ -60,14 +60,11 @@ let port = 4000;
 app.listen(port, () => {
     console.log('Express is running on port', port);
 });
+const redirectApp = express()
+redirectApp.use('*', (req, res) => {
+    res.redirect('https://corethic.com' + req.url);
+})
 
-if (!process.env.NODE_ENV === "development") {
-    const redirectApp = express()
-    redirectApp.use('*', (req, res) => {
-        res.redirect('https://corethic.com' + req.url);
-    })
-
-    redirectApp.listen(4001, () => {
-        console.log('Redirect server running on port 8000')
-    })
-}
+redirectApp.listen(4001, () => {
+    console.log('Redirect server running on port 8000')
+})
